@@ -5,7 +5,9 @@ package pers.luofei.http.client.codec;
  */
 public class CodecException extends Exception {
 
-    public CodecException(String s, Exception e) {
+	private static final long serialVersionUID = -1143565158886477114L;
+
+	public CodecException(String s, Exception e) {
         super(s, e);
     }
 

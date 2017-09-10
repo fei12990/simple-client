@@ -10,11 +10,12 @@ import java.util.Map;
 /**
  * Created by luofei on 2017/8/31.
  */
+@SuppressWarnings("unchecked")
 public class ServiceManager {
 
     private static ServiceManager manager;
 
-    private Map<Class, Object> services;
+    private Map<Class<?>, Object> services;
 
     private SimpleHttpProcessor simpleHttpProcessor;
 
@@ -32,7 +33,7 @@ public class ServiceManager {
         return manager;
     }
 
-    public <T> T getService(Class<T> clazz) {
+	public <T> T getService(Class<T> clazz) {
 
         Object service = services.get(clazz);
         if (service == null) {

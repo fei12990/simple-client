@@ -6,7 +6,9 @@ package pers.luofei.http.client;
  */
 public class SimpleHttpException extends Exception {
 
-    public SimpleHttpException(String s) {
+	private static final long serialVersionUID = -7615924471454812512L;
+
+	public SimpleHttpException(String s) {
         super(s);
     }
 }

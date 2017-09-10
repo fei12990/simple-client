@@ -2,6 +2,7 @@ package pers.luofei.http.client.codec;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
+
 import pers.luofei.http.client.SimpleHttpException;
 import pers.luofei.http.client.core.ContentType;
 import pers.luofei.http.client.core.RequestMethodInfo;
@@ -86,15 +87,15 @@ public class DefaultResponseBodyDecoder implements ResponseBodyDecoder {
                     Type rawType = ((ParameterizedType) returnType).getRawType();
                     if (rawType == List.class) {
                         Type[] types = ((ParameterizedType) returnType).getActualTypeArguments();
-                        return JSON.parseArray(result.toString(), (Class) types[0]);
+                        return JSON.parseArray(result.toString(), (Class<?>) types[0]);
                     } else {
-                        return JSON.toJavaObject((JSON) result, (Class) rawType);
+                        return JSON.toJavaObject((JSON) result, (Class<?>) rawType);
                     }
                 } else if (returnType instanceof Class) {
                     if (returnType == List.class) {
                         return JSON.parseArray(result.toString());
                     }
-                    return JSON.toJavaObject((JSON) result, (Class) returnType);
+                    return JSON.toJavaObject((JSON) result, (Class<?>) returnType);
                 }
                 return result;
             case OTHER:
@@ -163,6 +164,7 @@ public class DefaultResponseBodyDecoder implements ResponseBodyDecoder {
             }
         }
         fc.close();
+        accessFile.close();
         return file;
     }
 

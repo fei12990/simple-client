@@ -75,7 +75,7 @@ public class RequestMethodInfo {
     /**
      * 方法参数的Class
      */
-    private List<Class> parameterTypes;
+    private List<Class<?>> parameterTypes;
 
     /**
      * 回调实现类
@@ -163,11 +163,11 @@ public class RequestMethodInfo {
         this.returnType = returnType;
     }
 
-    public List<Class> getParameterTypes() {
+    public List<Class<?>> getParameterTypes() {
         return parameterTypes;
     }
 
-    void setParameterTypes(List<Class> parameterTypes) {
+    void setParameterTypes(List<Class<?>> parameterTypes) {
         this.parameterTypes = parameterTypes;
     }
 

@@ -23,12 +23,12 @@ public class StringUtils {
         return false;
     }
 
-    public static String join(Collection collection){
+    public static String join(Collection<?> collection){
         return join(collection,",");
     }
 
-    public static String join(Collection collection,String separator){
-        Iterator iterator = collection.iterator();
+    public static String join(Collection<?> collection,String separator){
+        Iterator<?> iterator = collection.iterator();
         if(!(collection.size() > 0 && iterator.hasNext()))
             return "";
         StringBuilder sb = new StringBuilder();

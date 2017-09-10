@@ -40,7 +40,7 @@ public class RequestMetaInfo {
         ContentType contentType = ContentType.FORM_URLENCODED;
         List<Class<? extends Annotation>> methodAnnotations = new ArrayList<>();
         List<Class<? extends Annotation>> parameterAnnotations = new ArrayList<>();
-        List<Class> parameterTypes = new ArrayList<>();
+        List<Class<?>> parameterTypes = new ArrayList<>();
 
         Type returnType;
         ContentType responseContentType = ContentType.JSON;

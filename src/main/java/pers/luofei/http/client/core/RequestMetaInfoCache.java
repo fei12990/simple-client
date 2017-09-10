@@ -13,9 +13,9 @@ import java.util.StringTokenizer;
  */
 public final class RequestMetaInfoCache {
 
-    private static Map<Class, RequestMetaInfo> metaInfoCache;
+    private static Map<Class<?>, RequestMetaInfo> metaInfoCache;
 
-    private static String REQUEST_ADDRESS;
+    public static String REQUEST_ADDRESS;
 
     private static Map<Class<? extends ResponseCallback>, ResponseCallback> callbackCache;
 
@@ -32,7 +32,7 @@ public final class RequestMetaInfoCache {
         REQUEST_ADDRESS = requestAddress;
     }
 
-    static RequestMetaInfo get(Class clazz) throws InstantiationException, IllegalAccessException {
+    static RequestMetaInfo get(Class<?> clazz) throws InstantiationException, IllegalAccessException {
 
         if (clazz == null) {
             return null;
@@ -46,7 +46,7 @@ public final class RequestMetaInfoCache {
         return metaInfo;
     }
 
-    private static RequestMetaInfo parse(Class clazz) {
+    private static RequestMetaInfo parse(Class<?> clazz) {
 
         RequestMetaInfo metaInfo = new RequestMetaInfo();
         for (Annotation annotation : clazz.getAnnotations()) {
@@ -129,7 +129,7 @@ public final class RequestMetaInfoCache {
         return metaInfo;
     }
 
-    public static void updateHost(Class clazz, String host) {
+    public static void updateHost(Class<?> clazz, String host) {
 
         if (host == null) {
             return;

@@ -97,7 +97,7 @@ public class ProxyMethod {
             Class<? extends Annotation> anno = parameterAnnotations.get(i);
             if (anno == RequestHeaders.class) {
                 if (Map.class.isAssignableFrom(parameterTypes[i])) {
-                    Map tmp = (Map) args[i];
+                    Map<?, ?> tmp = (Map<?, ?>) args[i];
                     for (Object o : tmp.keySet()) {
                         if (o == null) {
                             continue;
@@ -116,7 +116,7 @@ public class ProxyMethod {
                 }
             } else if (anno == RequestParam.class) {
                 if (Map.class.isAssignableFrom(parameterTypes[i])) {
-                    Map tmp = (Map) args[i];
+                    Map<?, ?> tmp = (Map<?, ?>) args[i];
                     for (Object o : tmp.keySet()) {
                         if (o == null) {
                             continue;
