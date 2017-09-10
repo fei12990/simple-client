@@ -1,0 +1,8 @@
+1、Simple-Http
+Simple-Http是一个精简的http客户端，只需依赖JRE1.7和fastjson。
+主要目的是为开发者省去http操作的各种琐碎，更面向业务地来调用远程服务。
+
+2、TODO:
+自定义的接口生成MetaInfo时需要校验
+
+
